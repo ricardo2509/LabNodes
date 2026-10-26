@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import s from "/pages/style.module.css";
+import s from "../pages/style.module.css";
 import useSwr from "swr";
 
 async function getAPI(url) {

@@ -1,27 +1,22 @@
-import Status from "../components/status";
-import useSwr from "swr";
+import s from "../pages/style.module.css";
 
-async function getAPI(url) {
-  const response = await fetch(url);
-  const responseBody = await response.json();
-  return responseBody;
-}
-
-function Index() {
-  const { data, error } = useSwr("/api/v1/status", getAPI, {
-    refreshInterval: 10000,
-  });
-
+export default function Index() {
   return (
-    <>
-      <h1>Lab Nodes/React</h1>
-      <h2>Database Info - Status component</h2>
-      <Status />
-      <br />
-      <br />
-      <h2>Database Info - API Status</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-    </>
+    <div>
+      <h1 className={`${s.defaultFont} ${s.divLO}`}>Lab Nodes/React</h1>
+
+      <nav>
+        <div className={`${s.itemMenu} ${s.nav}`}>
+          <a href="/status" className={`${s.label}`}>
+            Status
+          </a>
+        </div>
+        <div className={`${s.itemMenu} ${s.nav}`}>
+          <a href="/calculator" className={`${s.label}`}>
+            Calculator
+          </a>
+        </div>
+      </nav>
+    </div>
   );
 }
-export default Index;

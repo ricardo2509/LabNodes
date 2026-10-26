@@ -3,6 +3,44 @@
   color: black;
 }
 
+.linkAsButton {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #d0d4d8;
+  color: #000;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.divLO {
+  width: 80%;
+  height: 80%;
+  text-align: left;
+  margin: 5%;
+}
+
+.nav {
+  height: 50px;
+  width: 30%;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.itemMenu {
+  height: 50px;
+  vertical-align: middle;
+  text-align: left;
+  width: 100px;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: blue;
+}
+
 .w20 {
   width: 20%;
 }

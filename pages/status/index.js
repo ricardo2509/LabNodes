@@ -1,75 +1,39 @@
+import Status from "../../components/status";
+import s from "../style.module.css";
 import useSwr from "swr";
-import style from "/pages/style.module.css";
 
 async function getAPI(url) {
-    const response = await fetch(url);
-    const responseBody = await response.json();
-    return responseBody;
+  const response = await fetch(url);
+  const responseBody = await response.json();
+  return responseBody;
 }
 
-export default function StatusPage() {
-    const { isLoading, data } = useSwr("/api/v1/status", getAPI, {
-        refreshInterval: 1000,
-    });
+function Index() {
+  const { data, error } = useSwr("/api/v1/status", getAPI, {
+    refreshInterval: 10000,
+  });
 
-    return (
-        <>
-            <h1 className={style.defaultFont}>Status Page</h1>
-
-            {isLoading ? (
-                <p>Carregando...</p>
-            ) : (
-                <pre>
-                    <li>
-                        <ul style={{ display: "flex" }}>
-                            <label className={`${style.label} ${style.w20}`}>
-                                Last Atualization:{" "}
-                            </label>
-                            <label>
-                                {new Date(data.updated_at).toLocaleString(
-                                    "pt-BR",
-                                )}
-                            </label>
-                        </ul>
-                    </li>
-                </pre>
-            )}
-
-            <h1 className={style.defaultFont}>Database Information</h1>
-            {isLoading ? (
-                <p>Carregando...</p>
-            ) : (
-                <pre>
-                    <li>
-                        <ul style={{ display: "flex" }}>
-                            <label className={`${style.label} ${style.w20}`}>
-                                Database Version:
-                            </label>
-                            <label>{data.dependencies.database.version}</label>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul style={{ display: "flex" }}>
-                            <label className={`${style.label} ${style.w20}`}>
-                                Max Connections:
-                            </label>
-                            <label>
-                                {data.dependencies.database.max_connections}
-                            </label>
-                        </ul>
-                    </li>
-                    <li>
-                        <ul style={{ display: "flex" }}>
-                            <label className={`${style.label} ${style.w20}`}>
-                                Open Connections:
-                            </label>
-                            <label>
-                                {data.dependencies.database.open_connections}
-                            </label>
-                        </ul>
-                    </li>
-                </pre>
-            )}
-        </>
-    );
+  return (
+    <>
+      <h1>Lab Nodes/React</h1>
+      <h2>Database Info - Status component</h2>
+      <Status />
+      <br />
+      <br />
+      <h2>Database Info - API Status</h2>
+      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <div
+        style={{
+          width: "350px",
+          marginLeft: "50%",
+          padding: "2px",
+        }}
+      >
+        <a href="/" className={s.linkAsButton}>
+          Back
+        </a>
+      </div>
+    </>
+  );
 }
+export default Index;
