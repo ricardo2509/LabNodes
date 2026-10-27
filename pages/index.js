@@ -7,13 +7,18 @@ export default function Index() {
 
       <nav>
         <div className={`${s.itemMenu} ${s.nav}`}>
-          <a href="/status" className={`${s.label}`}>
-            Status
+          <a href="/exchangeRate" className={`${s.label}`}>
+            USD exchange rate
           </a>
         </div>
         <div className={`${s.itemMenu} ${s.nav}`}>
           <a href="/calculator" className={`${s.label}`}>
             Calculator
+          </a>
+        </div>
+        <div className={`${s.itemMenu} ${s.nav}`}>
+          <a href="/status" className={`${s.label}`}>
+            Database Status
           </a>
         </div>
       </nav>

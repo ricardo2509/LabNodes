@@ -14,7 +14,15 @@ function Index() {
   });
 
   return (
-    <>
+    <div
+      style={{
+        width: "350px",
+        margin: "50px auto",
+        padding: "20px",
+        border: "1px solid #ccc",
+        borderRadius: "8px",
+      }}
+    >
       <h1>Lab Nodes/React</h1>
       <h2>Database Info - Status component</h2>
       <Status />
@@ -33,7 +41,7 @@ function Index() {
           Back
         </a>
       </div>
-    </>
+    </div>
   );
 }
 export default Index;

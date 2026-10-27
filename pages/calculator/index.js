@@ -3,6 +3,7 @@ import s from "../style.module.css";
 
 function Calculator() {
   const [display, setDisplay] = useState("0");
+  const [tsePAttern, settsePAttern] = useState(false);
 
   // Adiciona números ou operadores ao visor
   const handleButtonClick = (value) => {
@@ -23,7 +24,7 @@ function Calculator() {
     try {
       // eval calcula a expressão matemática em formato de texto
 
-      if (display.indexOf("+") !== -1) {
+      if (display.indexOf("+") !== -1 && tsePAttern) {
         var operator = display.indexOf("+");
         var soma = display.substring(operator + 1, display.length);
         soma = (parseInt(soma) + 1).toString();
@@ -34,6 +35,14 @@ function Calculator() {
       }
     } catch (error) {
       setDisplay("Erro");
+    }
+  };
+
+  const handleCheckBoxChange = (e) => {
+    if (e.target.checked) {
+      settsePAttern(true);
+    } else {
+      settsePAttern(false);
     }
   };
 
@@ -56,6 +65,19 @@ function Calculator() {
       >
         The Calculator
       </h2>
+
+      <div
+        style={{
+          width: "350px",
+          marginLeft: "10%",
+          padding: "2px",
+        }}
+      >
+        <input type="checkbox" onClick={(e) => handleCheckBoxChange(e)} />
+        <label className={s.defaultFont} htmlFor="ste-checkbox">
+          STE Mode
+        </label>
+      </div>
 
       <div
         style={{
