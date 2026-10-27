@@ -1,17 +1,7 @@
 import ExchangeRateComponent from "../../components/exchangeRate";
-
 import s from "../style.module.css";
-import useSwr from "swr";
-
-async function getAPI(url) {
-  const response = await fetch(url);
-  const responseBody = await response.json();
-  return responseBody;
-}
 
 export default function ExchangeRate() {
-  const { data, error } = useSwr("/api/v1/exchangeRate", getAPI);
-
   return (
     <div
       style={{

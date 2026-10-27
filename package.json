@@ -14,7 +14,7 @@
   "author": "Ricardo TP",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run services:up && next dev",
+    "dev": "npm run services:up && npm run migration:up && next dev",
     "services:up": "bash -c 'docker compose -f infra/compose.yaml up -d'",
     "test": "jest",
     "test-watch": "jest --watchAll --no-cache --no-watchman",

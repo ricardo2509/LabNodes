@@ -4,10 +4,11 @@ import s from "../pages/style.module.css";
 const ExchangeRateComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [dbVersion, setDbVersion] = useState("1");
-  const [maxConn, setMaxConn] = useState(1);
+  const [rate, setRate] = useState("1");
+  const [curCode, setCurCode] = useState(1);
   const [openConn, setOpenConn] = useState(1);
-  const [updated_at_is, setUpdated_at_is] = useState(null);
+  const [created_at_is, setCreated_at_is] = useState(null);
+  const [responseBody, setResponseBody] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,14 +19,11 @@ const ExchangeRateComponent = () => {
             : "";
 
         const response = await fetch(host + "/api/v1/exchangeRate");
+
         setIsLoading(false);
 
-        const responseBody = await response.json();
-        setUpdated_at_is(new Date(responseBody.updated_at).toISOString());
-        const dbVersion = responseBody.dependencies.database.version;
-        setDbVersion(responseBody.dependencies.database.version);
-        setMaxConn(responseBody.dependencies.database.max_connections);
-        setOpenConn(responseBody.dependencies.database.open_connections);
+        const responseBodyData = await response.json();
+        setResponseBody(responseBodyData);
       } catch (err) {
         setError(err);
         setIsLoading(false);
@@ -45,23 +43,29 @@ const ExchangeRateComponent = () => {
 
   return (
     <div>
-      <div className={`${s.fl} ${s.w100}`}>
-        <label className={`${s.label} ${s.w40}`}>Version DB:</label>
-        <label className={`${s.label} ${s.w20}`}>{dbVersion}</label>
-      </div>
-      <div>
-        <label className={`${s.label} ${s.w40}`}>Max Connections: </label>
-        <label className={`${s.label} ${s.w40}`}>{maxConn}</label>
-      </div>
-      <div>
-        <label className={`${s.label} ${s.w40}`}>Open Connections</label>
-        <label className={`${s.label} ${s.w40}`}>{openConn}</label>
-      </div>
-      <div>
-        <label className={`${s.label} ${s.w40}`}>Last update</label>
-        <label className={`${s.label} ${s.w40}`}>{updated_at_is}</label>
-      </div>
-      <br />
+      {responseBody.map((item) => (
+        <div>
+          <div className={`${s.fl} ${s.w100}`}>
+            <label className={`${s.label} ${s.w40}`}>Exchange Rate:</label>
+            <label className={`${s.label} ${s.w20}`}>{item.rate}</label>
+          </div>
+          <div>
+            <label className={`${s.label} ${s.w40}`}>Currency</label>
+            <label className={`${s.label} ${s.w40}`}>
+              {item.currency_code}
+            </label>
+          </div>
+          <div>
+            <label className={`${s.label} ${s.w40}`}>Created</label>
+            <label className={`${s.label} ${s.w40}`}>
+              {new Intl.DateTimeFormat("pt-BR").format(
+                new Date(item.created_at),
+              )}
+            </label>
+          </div>
+          <br />
+        </div>
+      ))}
     </div>
   );
 };
