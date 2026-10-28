@@ -47,7 +47,7 @@ const ExchangeRateComponent = () => {
           <div>
             <label className={`${s.label} ${s.w40}`}>Currency</label>
             <label className={`${s.label} ${s.w40}`}>
-              {item.currency_code} - {item.currency_name}
+              {item.currency_code} - {item.currency_country}
             </label>
           </div>
           <div>
