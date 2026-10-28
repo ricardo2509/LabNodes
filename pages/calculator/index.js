@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import s from "../style.module.css";
+import Header from "../../components/header";
 
 function Calculator() {
   const [display, setDisplay] = useState("0");
@@ -47,105 +48,102 @@ function Calculator() {
   };
 
   return (
-    <div
-      style={{
-        width: "350px",
-        margin: "50px auto",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-      }}
-    >
-      <h2
-        style={{
-          width: "350px",
-          marginLeft: "10%",
-          padding: "2px",
-        }}
-      >
-        The Calculator
-      </h2>
+    <div>
+      <Header />
 
-      <div
-        style={{
-          width: "350px",
-          marginLeft: "10%",
-          padding: "2px",
-        }}
-      >
-        <input type="checkbox" onClick={(e) => handleCheckBoxChange(e)} />
-        <label className={s.defaultFont} htmlFor="ste-checkbox">
-          STE Mode
-        </label>
-      </div>
-
-      <div
-        style={{
-          width: "250px",
-          margin: "50px auto",
-          padding: "20px",
-          border: "1px solid #ccc",
-          borderRadius: "8px",
-        }}
-      >
-        <div
+      <div className={s.container}>
+        <h3
+          className={`${s.label} ${s.labelMedium}`}
           style={{
-            marginBottom: "10px",
-            padding: "10px",
-            fontSize: "1.5em",
-            background: "#f4f4f4",
-            textAlign: "right",
+            width: "200px",
+            marginLeft: "10%",
+            padding: "2px",
           }}
         >
-          {display}
+          The Calculator
+        </h3>
+
+        <div
+          style={{
+            width: "350px",
+            marginLeft: "10%",
+            padding: "2px",
+          }}
+        >
+          <input type="checkbox" onClick={(e) => handleCheckBoxChange(e)} />
+          <label className={s.defaultFont} htmlFor="ste-checkbox">
+            STE Mode
+          </label>
         </div>
+
         <div
           style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap: "5px",
+            width: "250px",
+            margin: "50px auto",
+            padding: "20px",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
           }}
         >
-          <button onClick={handleClear}>C</button>
-          <button onClick={() => handleButtonClick("/")}>/</button>
-          <button onClick={() => handleButtonClick("*")}>*</button>
-          <button onClick={() => handleButtonClick("-")}>-</button>
-
-          <button onClick={() => handleButtonClick("7")}>7</button>
-          <button onClick={() => handleButtonClick("8")}>8</button>
-          <button onClick={() => handleButtonClick("9")}>9</button>
-          <button onClick={() => handleButtonClick("+")}>+</button>
-
-          <button onClick={() => handleButtonClick("4")}>4</button>
-          <button onClick={() => handleButtonClick("5")}>5</button>
-          <button onClick={() => handleButtonClick("6")}>6</button>
-          <button onClick={handleCalculate} style={{ gridRow: "span 2" }}>
-            =
-          </button>
-
-          <button onClick={() => handleButtonClick("1")}>1</button>
-          <button onClick={() => handleButtonClick("2")}>2</button>
-          <button onClick={() => handleButtonClick("3")}>3</button>
-
-          <button
-            onClick={() => handleButtonClick("0")}
-            style={{ gridColumn: "span 2" }}
+          <div
+            style={{
+              marginBottom: "10px",
+              padding: "10px",
+              fontSize: "1.5em",
+              background: "#f4f4f4",
+              textAlign: "right",
+            }}
           >
-            0
-          </button>
-          <button onClick={() => handleButtonClick(".")}>.</button>
+            {display}
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "5px",
+            }}
+          >
+            <button onClick={handleClear}>C</button>
+            <button onClick={() => handleButtonClick("/")}>/</button>
+            <button onClick={() => handleButtonClick("*")}>*</button>
+            <button onClick={() => handleButtonClick("-")}>-</button>
+
+            <button onClick={() => handleButtonClick("7")}>7</button>
+            <button onClick={() => handleButtonClick("8")}>8</button>
+            <button onClick={() => handleButtonClick("9")}>9</button>
+            <button onClick={() => handleButtonClick("+")}>+</button>
+
+            <button onClick={() => handleButtonClick("4")}>4</button>
+            <button onClick={() => handleButtonClick("5")}>5</button>
+            <button onClick={() => handleButtonClick("6")}>6</button>
+            <button onClick={handleCalculate} style={{ gridRow: "span 2" }}>
+              =
+            </button>
+
+            <button onClick={() => handleButtonClick("1")}>1</button>
+            <button onClick={() => handleButtonClick("2")}>2</button>
+            <button onClick={() => handleButtonClick("3")}>3</button>
+
+            <button
+              onClick={() => handleButtonClick("0")}
+              style={{ gridColumn: "span 2" }}
+            >
+              0
+            </button>
+            <button onClick={() => handleButtonClick(".")}>.</button>
+          </div>
         </div>
-      </div>
-      <div
-        style={{
-          width: "350px",
-          marginLeft: "70%",
-          padding: "2px",
-        }}
-      >
-        <a href="/" className={s.linkAsButton}>
-          Back
-        </a>
+        <div
+          style={{
+            width: "350px",
+            marginLeft: "70%",
+            padding: "2px",
+          }}
+        >
+          <a href="/" className={s.linkAsButton}>
+            Back
+          </a>
+        </div>
       </div>
     </div>
   );

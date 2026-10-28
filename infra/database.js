@@ -1,5 +1,15 @@
 import { Client } from "pg";
 
+async function queryParam(qry, param) {
+  const client = await getNewClient();
+
+  console.log("respose querParam: " + param);
+  const response = await client.query(qry, param);
+
+  await client.end();
+  return response;
+}
+
 async function query(qry) {
   const client = await getNewClient();
 
@@ -28,5 +38,6 @@ function getSSLValues() {
 
 export default {
   query,
+  queryParam,
   getNewClient,
 };

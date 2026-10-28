@@ -3,6 +3,22 @@
   color: black;
 }
 
+.container {
+  margin: 5%;
+  width: 70%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.smallContainer {
+  margin: 5%;
+  width: 40%;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
 .linkAsButton {
   font-family: Arial, sans-serif;
   font-size: 14px;
@@ -13,13 +29,19 @@
   text-decoration: none;
   border-radius: 5px;
   text-align: center;
+  min-width: 30px;
+}
+
+.linkAsButtonBlue {
+  background-color: rgb(31, 179, 80);
+  color: white;
 }
 
 .divLO {
-  width: 80%;
-  height: 80%;
+  width: 100%;
   text-align: left;
-  margin: 5%;
+  margin-top: 2%;
+  margin-left: 5%;
 }
 
 .nav {
@@ -38,6 +60,11 @@
   margin-left: 5%;
   font-family: Arial, Helvetica, sans-serif;
   color: blue;
+}
+
+.m10 {
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .w20 {
@@ -60,9 +87,43 @@
 .label {
   display: inline-block;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: small;
   color: rgb(13, 13, 100);
+}
+
+.labelMedium {
+  font-size: medium;
+}
+
+.labelLarge {
+  font-size: large;
 }
 
 .fl {
   float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.cb {
+  clear: both;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column; /* Empilha o label e o input */
+  gap: 8px; /* Opcional: cria um espacinho perfeito entre o label e o input */
+}
+
+.successMessage {
+  color: green;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+}
+.errorMessage {
+  color: red;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
 }

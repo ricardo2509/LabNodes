@@ -19,7 +19,8 @@
     "test": "jest",
     "test-watch": "jest --watchAll --no-cache --no-watchman",
     "migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
-    "migration:up": "node-pg-migrate --database-url-env POSTGRES_HOST --migrations-dir infra/migrations up",
+    "migration:up": "node-pg-migrate --migrations-dir infra/migrations --envPath .env.development up",
+    "//migration:up": "database-url-env POSTGRES_HOST => --envPath .env.development",
     "migration:down": "node-pg-migrate --migrations-dir infra/migrations --envPath .env.development down",
     "build": "npm run migration:up && next build",
     "start": "next start"

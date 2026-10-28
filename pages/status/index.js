@@ -1,4 +1,5 @@
 import Status from "../../components/status";
+import Header from "../../components/header";
 import s from "../style.module.css";
 import useSwr from "swr";
 
@@ -14,32 +15,44 @@ function Index() {
   });
 
   return (
-    <div
-      style={{
-        width: "350px",
-        margin: "50px auto",
-        padding: "20px",
-        border: "1px solid #ccc",
-        borderRadius: "8px",
-      }}
-    >
-      <h1>Lab Nodes/React</h1>
-      <h2>Database Info - Status component</h2>
-      <Status />
-      <br />
-      <br />
-      <h2>Database Info - API Status</h2>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <div
-        style={{
-          width: "350px",
-          marginLeft: "50%",
-          padding: "2px",
-        }}
-      >
-        <a href="/" className={s.linkAsButton}>
-          Back
-        </a>
+    <div>
+      <Header />
+      <div className={s.container}>
+        <h3
+          className={`${s.label} ${s.labelMedium}`}
+          style={{
+            width: "300px",
+            marginLeft: "10%",
+            padding: "2px",
+          }}
+        >
+          Database Info - Status component
+        </h3>
+        <Status />
+        <br />
+        <br />
+        <h3
+          className={`${s.label} ${s.labelMedium}`}
+          style={{
+            width: "300px",
+            marginLeft: "10%",
+            padding: "2px",
+          }}
+        >
+          Database Info - API Status
+        </h3>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <div
+          style={{
+            width: "350px",
+            marginLeft: "75%",
+            padding: "2px",
+          }}
+        >
+          <a href="/" className={s.linkAsButton}>
+            Back
+          </a>
+        </div>
       </div>
     </div>
   );
