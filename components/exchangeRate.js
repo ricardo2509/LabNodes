@@ -4,10 +4,6 @@ import s from "../pages/style.module.css";
 const ExchangeRateComponent = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [rate, setRate] = useState("1");
-  const [curCode, setCurCode] = useState(1);
-  const [openConn, setOpenConn] = useState(1);
-  const [created_at_is, setCreated_at_is] = useState(null);
   const [responseBody, setResponseBody] = useState([]);
 
   useEffect(() => {
@@ -19,7 +15,6 @@ const ExchangeRateComponent = () => {
             : "";
 
         const response = await fetch(host + "/api/v1/exchangeRate");
-
         setIsLoading(false);
 
         const responseBodyData = await response.json();
@@ -52,7 +47,7 @@ const ExchangeRateComponent = () => {
           <div>
             <label className={`${s.label} ${s.w40}`}>Currency</label>
             <label className={`${s.label} ${s.w40}`}>
-              {item.currency_code}
+              {item.currency_code} - {item.currency_name}
             </label>
           </div>
           <div>
