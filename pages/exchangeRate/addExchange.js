@@ -84,19 +84,29 @@ export default function ExchangeRate() {
 
           <div
             style={{
-              width: "250px",
-              marginLeft: "30%",
-              paddingTop: "20px",
+              marginTop: "20px",
               display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
             }}
           >
-            <div style={{ marginLeft: "auto", width: "90%", marginLeft: "3%" }}>
+            <div
+              style={{
+                marginLeft: "5%",
+              }}
+            >
               <button
                 className={`${s.linkAsButton} ${s.linkAsButtonBlue} ${s.m10}`}
                 type="submit"
               >
                 Ok
               </button>
+            </div>
+            <div
+              style={{
+                marginRight: "5%",
+              }}
+            >
               <a href="./" className={`${s.linkAsButton} ${s.m10}`}>
                 Back
               </a>

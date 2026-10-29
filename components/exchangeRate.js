@@ -39,7 +39,7 @@ const ExchangeRateComponent = () => {
   return (
     <div>
       {responseBody.map((item) => (
-        <div>
+        <div key={item.id}>
           <div className={`${s.fl} ${s.w100}`}>
             <label className={`${s.label} ${s.w40}`}>Exchange Rate:</label>
             <label className={`${s.label} ${s.w20}`}>{item.rate}</label>

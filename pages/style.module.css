@@ -5,15 +5,14 @@
 
 .container {
   margin: 5%;
-  width: 70%;
+  width: 80%;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
 }
 
 .smallContainer {
-  width: 40%;
-  min-width: 300px;
+  width: 80%;
 }
 
 .linkAsButton {

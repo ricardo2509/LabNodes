@@ -6,8 +6,7 @@ export default function ExchangeRate() {
   return (
     <div>
       <Header />
-
-      <div className={`${s.container} ${s.smallContainer}`}>
+      <div className={`${s.container}  ${s.smallContainer}`}>
         <div
           style={{
             display: "flex",

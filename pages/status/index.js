@@ -17,31 +17,36 @@ function Index() {
   return (
     <div>
       <Header />
-      <div className={s.container}>
-        <h3
-          className={`${s.label} ${s.labelMedium}`}
-          style={{
-            width: "300px",
-            marginLeft: "10%",
-            padding: "2px",
-          }}
-        >
-          Database Info - Status component
-        </h3>
-        <Status />
+      <div className={`${s.container}  ${s.smallContainer}`}>
+        <div>
+          <h3
+            className={`${s.label} ${s.labelMedium}`}
+            style={{
+              marginLeft: "10%",
+              padding: "2px",
+            }}
+          >
+            Database Info - API Status
+          </h3>
+          <Status />
+        </div>
         <br />
         <br />
-        <h3
-          className={`${s.label} ${s.labelMedium}`}
-          style={{
-            width: "300px",
-            marginLeft: "10%",
-            padding: "2px",
-          }}
-        >
-          Database Info - API Status
-        </h3>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <div>
+          <h3
+            className={`${s.label} ${s.labelMedium}`}
+            style={{
+              marginLeft: "10%",
+              padding: "2px",
+              overflow: "hidden",
+            }}
+          >
+            Database Info - API Status
+          </h3>
+          <div style={{ overflow: "hidden" }}>
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+          </div>
+        </div>
         <div
           style={{
             width: "350px",
