@@ -2,3 +2,4 @@ node_modules/
 .next
 notas
 .env.development
+layout.js

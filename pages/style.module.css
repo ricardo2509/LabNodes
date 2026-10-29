@@ -12,23 +12,18 @@
 }
 
 .smallContainer {
-  margin: 5%;
   width: 40%;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  min-width: 300px;
 }
 
 .linkAsButton {
   font-family: Arial, sans-serif;
   font-size: 14px;
-  display: inline-block;
   padding: 10px 20px;
   background-color: #d0d4d8;
   color: #000;
   text-decoration: none;
   border-radius: 5px;
-  text-align: center;
   min-width: 30px;
 }
 

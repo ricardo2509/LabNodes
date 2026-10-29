@@ -55,7 +55,7 @@ export default function ExchangeRate() {
       <div>
         <Header />
 
-        <div className={s.smallContainer}>
+        <div className={`${s.container} ${s.smallContainer}`}>
           <div className={`${s.divLO}`}>
             <h3 className={`${s.label} ${s.labelMedium}`}>Add Exchange Rate</h3>
           </div>
@@ -85,19 +85,22 @@ export default function ExchangeRate() {
           <div
             style={{
               width: "250px",
-              marginLeft: "50%",
-              padding: "2px",
+              marginLeft: "30%",
+              paddingTop: "20px",
+              display: "flex",
             }}
           >
-            <button
-              className={`${s.linkAsButton} ${s.linkAsButtonBlue} ${s.m10}`}
-              type="submit"
-            >
-              Ok
-            </button>
-            <a href="./" className={`${s.linkAsButton} ${s.m10}`}>
-              Back
-            </a>
+            <div style={{ marginLeft: "auto", width: "90%", marginLeft: "3%" }}>
+              <button
+                className={`${s.linkAsButton} ${s.linkAsButtonBlue} ${s.m10}`}
+                type="submit"
+              >
+                Ok
+              </button>
+              <a href="./" className={`${s.linkAsButton} ${s.m10}`}>
+                Back
+              </a>
+            </div>
           </div>
           <label className={`${s.successMessage}`}>{message}</label>
           <label className={`${s.errorMessage}`}>{error}</label>

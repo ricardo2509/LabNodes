@@ -12,10 +12,6 @@ async function create(rate, currency_id) {
 
     return resultado.rows[0];
   } catch (error) {
-    console.log("-------------------------------------");
-    console.log(error);
-    console.log("-------------------------------------");
-
     throw error;
   }
 }

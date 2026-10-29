@@ -7,27 +7,18 @@ export default function ExchangeRate() {
     <div>
       <Header />
 
-      <div className={s.container}>
-        <div className={`${s.cb}`}>
-          <div className={`${s.fl} ${s.labelMedium}`}>
-            <h3
-              className={`${s.label} ${s.labelMedium}`}
-              style={{
-                width: "200px",
-                marginLeft: "10%",
-                padding: "2px",
-              }}
-            >
-              Exchange Rate
-            </h3>
+      <div className={`${s.container} ${s.smallContainer}`}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <h3 className={`${s.label} ${s.labelMedium}`}>Exchange Rate</h3>
           </div>
-          <div
-            style={{
-              width: "350px",
-              marginLeft: "75%",
-              padding: "2px",
-            }}
-          >
+          <div>
             <a
               href="./exchangeRate/addExchange"
               className={`${s.linkAsButton} ${s.linkAsButtonBlue}`}
@@ -36,26 +27,18 @@ export default function ExchangeRate() {
             </a>
           </div>
         </div>
-
-        <br />
-        <div
-          className={`${s.cb}`}
-          style={{
-            width: "350px",
-            marginLeft: "10%",
-            padding: "2px",
-          }}
-        >
+        <div style={{ width: "90%" }}>
           <ExchangeRateComponent />
         </div>
 
         <div
           style={{
-            width: "350px",
-            marginLeft: "75%",
-            padding: "2px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "right",
           }}
         >
+          <div></div>
           <a href="/" className={`${s.linkAsButton}`}>
             Back
           </a>
